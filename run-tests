@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+mkdir -p $artifacts_dir
+
+gradle run --info \
+  -Dauto.url=$auto_url \
+  -Dauto.token=$auto_token \
+  -Dauto.dir=$artifacts_dir \
+  -Dauto.file=$binary_file \
+  -Dauto.group=$auto_group \
+  -Dauto.wait=$max_wait \
+  -Dauto.score=$min_score \
+  -Dauto.show.status.messages=$show_status_messages
