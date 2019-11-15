@@ -9,14 +9,14 @@ Purpose-built for mobile app teams, NowSecure AUTO provides fully automated, mob
 
 ## Job Parameters
 
-Following are parameters needed for the job
+All of these can be and should be passed in as variables to GitLab CI jobs.
 
-- auto_token: mandatory parameter for API token. visit https://docs.nowsecure.com/auto/integration-services/jenkins-integration to generate token. Also, we recommend using environment variable AUTO_TOKEN to define this parameter instead of using job parameter.
-- auto_file: mandatory parameter to specify mobile binary. Note you must attach workspace from previous step where this file was created.
-- auto_url: optional parameter for nowsecure auto API URL with default value of https://lab-api.nowsecure.com
-- auto_group: optional parameter for group-id. You can also use environment variable AUTO_GROUP to specify this
-- auto_wait: optional parameter to specify maximum wait in minutes until security test is completed. The default value is 30 minutes and you can skip wait by specifying 0 value.
-- auto_show_status_messages: Specify flag to show status messages from automation testing
+- `auto_token` **Required** - Authentication token for Auto API. Visit https://docs.nowsecure.com/auto/integration-services/jenkins-integration to generate token.
+- `auto_url` (default: https://lab-api.nowsecure.com) **Optional** Auto API location
+- `auto_group` **Required** 
+- `max_wait` (default: 30) **Optional** Maximum wait in minutes until security test is completed. To skip the wait, set to 0.
+- `min_score` (default: 50) **Optional** Minimum score the app must have otherwise the job will fail
+- `auto_show_status_messages` (default: true) Specify flag to show status messages from automation testing. Set to false to hide status messages
 
 ## Sample Usage
 
@@ -27,8 +27,8 @@ nowsecure-auto:
   stage: test
   image: nowsecure/auto-gitlab-plugin:v1.1.0
   variables:
-    binary_file: /path/to/artifact/apk/or/ipa/file
     auto_group: 00000000-0000-0000-0000-000000000000
+    binary_file: /path/to/artifact/apk/or/ipa/file
   script:
     - bash run-tests
 ```
