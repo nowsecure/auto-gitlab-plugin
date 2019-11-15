@@ -30,7 +30,7 @@ nowsecure-auto:
     binary_file: /path/to/artifact/apk/or/ipa/file
     auto_group: 00000000-0000-0000-0000-000000000000
   script:
-    - run-tests
+    - bash run-tests
 ```
 
 Note that you will generate mobile binary using gradle, Makefile, Fastlane or other tools instead of copying file but it shows how binary file will be created and then passed to the Auto CircleCI Orb for security analysis.
