@@ -26,7 +26,7 @@ You should pass `auto_token` in via CI/CI variable in GitLab Settings instead in
 nowsecure-auto:
   stage: test
   image: nowsecure/auto-gitlab-plugin:v1.1.0
-  environment:
+  variables:
     binary_file: /path/to/artifact/apk/or/ipa/file
     auto_group: 00000000-0000-0000-0000-000000000000
   script:
