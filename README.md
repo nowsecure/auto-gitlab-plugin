@@ -12,8 +12,8 @@ Purpose-built for mobile app teams, NowSecure AUTO provides fully automated, mob
 All of these can be and should be passed in as variables to GitLab CI jobs.
 
 - `auto_token` **Required** - Authentication token for Auto API. Visit https://docs.nowsecure.com/auto/integration-services/jenkins-integration to generate token.
-- `auto_url` (default: https://lab-api.nowsecure.com) Auto API location, this generally should not be changed
 - `auto_group` **Required** The Auto Group ID that the testing should be submitted against.
+- `auto_url` (default: https://lab-api.nowsecure.com) Auto API location, this generally should not be changed
 - `max_wait` (default: 30) Maximum wait in minutes until security test is completed. To skip the wait, set to 0.
 - `min_score` (default: 50) Minimum score the app must have otherwise the job will fail
 - `auto_show_status_messages` (default: true) Specify flag to show status messages from automation testing. Set to false to hide status messages
